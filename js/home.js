@@ -4,14 +4,14 @@ getVideoList().then(createVideoItem);
 
 // 비디오 리스트 정보
 async function getVideoList() {
-  let response = await fetch("https://oreumi.appspot.com/video/getVideoList");
+  let response = await fetch("http://oreumi.appspot.com/video/getVideoList");
   let videoListData = await response.json();
   return videoListData;
 }
 
 // 각 비디오 정보
 async function getVideoInfo(videoId) {
-  let url = `https://oreumi.appspot.com/video/getVideoInfo?video_id=${videoId}`;
+  let url = `http://oreumi.appspot.com/video/getVideoInfo?video_id=${videoId}`;
   let response = await fetch(url);
   let videoData = await response.json();
   return videoData;
@@ -27,7 +27,7 @@ async function getChannelInfo(channelName) {
     return channelCache[channelName];
   }
 
-  let url = `https://oreumi.appspot.com/channel/getChannelInfo`;
+  let url = `http://oreumi.appspot.com/channel/getChannelInfo`;
 
   let response = await fetch(url, {
     method: "POST",
